@@ -17,4 +17,4 @@ services:
       - "--welcomemessage"
       - "Rob Richards"
       - "--numchannels"
-      - "16"
+      - "4"
