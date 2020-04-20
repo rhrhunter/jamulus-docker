@@ -1,0 +1,20 @@
+---
+version: "3.7"
+services:
+  jamulus:
+    container_name: jamulus 
+    image: jamulus:3.5.1-arm
+    build: .
+    restart: always
+    ports:
+      - "22124:22124/udp"
+    environment:
+      TZ: "America/New_York"  
+    entrypoint:
+      - "Jamulus"
+      - "--server"
+      - "--nogui"
+      - "--welcomemessage"
+      - "Rob Richards"
+      - "--numchannels"
+      - "16"
