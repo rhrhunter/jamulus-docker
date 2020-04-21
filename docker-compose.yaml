@@ -7,14 +7,16 @@ services:
     build: .
     restart: always
     ports:
-      - "22124:22124/udp"
+      - "${PORT}:${PORT}/udp"
     environment:
       TZ: "America/New_York"  
     entrypoint:
       - "Jamulus"
       - "--server"
       - "--nogui"
+      - "--port"
+      - "${PORT}"
       - "--welcomemessage"
-      - "Rob Richards"
+      - "Rob Richards - ${HOSTNAME}"
       - "--numchannels"
       - "4"
