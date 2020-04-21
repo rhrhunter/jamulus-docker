@@ -3,32 +3,23 @@ FROM alpine:3.9 as builder
 ENV JAMULUS_VERSION 3_5_1
 
 RUN \
- echo "**** updating system packages ****" && \
- apk update
-
-RUN \
  echo "**** install build packages ****" && \
-   apk add --no-cache --virtual .build-dependencies \
+   apk update && apk add --no-cache --virtual .build-dependencies \
         build-base \
-        wget \
-        qt-dev
+        qt-dev \
+        git
 
 WORKDIR /tmp
-RUN \
- echo "**** getting source code ****" && \
-   wget "https://github.com/corrados/jamulus/archive/r${JAMULUS_VERSION}.tar.gz" && \
-   tar xzf r${JAMULUS_VERSION}.tar.gz
+RUN git clone https://github.com/corrados/jamulus.git
+WORKDIR /tmp/jamulus
 
 # Github directory format for tar.gz export
-WORKDIR /tmp/jamulus-r${JAMULUS_VERSION}
 RUN \
  echo "**** compiling source code ****" && \
    qmake "CONFIG+=nosound" Jamulus.pro && \
    make clean && \
    make && \
-   cp Jamulus /usr/local/bin/ && \
-   rm -rf /tmp/* && \
-   apk del .build-dependencies
+   cp Jamulus /usr/local/bin/
 
 FROM alpine:3.9
 

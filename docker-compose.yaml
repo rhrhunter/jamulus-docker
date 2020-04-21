@@ -3,7 +3,7 @@ version: "3.7"
 services:
   jamulus:
     container_name: jamulus 
-    image: jamulus:3.5.1-arm
+    image: jamulus:HEAD
     build: .
     restart: always
     ports:
