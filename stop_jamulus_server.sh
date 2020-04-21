@@ -8,5 +8,5 @@ docker-compose down
 docker-compose kill
 
 # close up the firewall
-sudo ufw deny ${PORT}/udp
-sudo ufw deny ${PORT}/tcp
+#sudo ufw deny ${PORT}/udp
+#sudo ufw deny ${PORT}/tcp

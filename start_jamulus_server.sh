@@ -7,5 +7,5 @@ export PORT=22124
 docker-compose up -d
 
 # open up the firewall
-sudo ufw allow ${PORT}/udp
-sudo ufw allow ${PORT}/tcp
+#sudo ufw allow ${PORT}/udp
+#sudo ufw allow ${PORT}/tcp
