@@ -3,5 +3,5 @@
 export HOSTNAME=$(hostname)
 export PORT=22124
 
-# build the jamulus server
-docker-compose build "$@"
+# attach to the logs
+docker-compose logs -f
