@@ -4,7 +4,10 @@ services:
   jamulus:
     container_name: jamulus 
     image: jamulus:HEAD
-    build: .
+    build:
+      context: ./
+      args:
+        - JAMULUS_RELEASE=r3_5_2
     restart: always
     ports:
       - "${PORT}:${PORT}/udp"

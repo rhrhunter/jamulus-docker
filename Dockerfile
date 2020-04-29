@@ -6,8 +6,10 @@ RUN  apk update && apk add --no-cache \
         git
 
 WORKDIR /tmp
+ARG JAMULUS_RELEASE=r3_5_2
 RUN git clone https://github.com/corrados/jamulus.git
 WORKDIR /tmp/jamulus
+RUN git checkout $JAMULUS_RELEASE
 
 # Github directory format for tar.gz export
 RUN qmake "CONFIG+=nosound" Jamulus.pro && \
