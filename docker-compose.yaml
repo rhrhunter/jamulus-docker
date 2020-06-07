@@ -3,11 +3,11 @@ version: "3.7"
 services:
   jamulus:
     container_name: jamulus 
-    image: jamulus:HEAD
+    image: robrichards/jamulus-server:HEAD
     build:
       context: ./
       args:
-        - JAMULUS_RELEASE=r3_5_2
+        - JAMULUS_RELEASE=r3_5_5
     restart: always
     ports:
       - "${PORT}:${PORT}/udp"

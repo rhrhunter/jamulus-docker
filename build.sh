@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 export HOSTNAME=$(hostname)
-export PORT=44234
+export PORT=22124
 
 # build the jamulus server
 docker-compose build "$@"
