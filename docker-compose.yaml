@@ -2,15 +2,15 @@
 version: "3.7"
 services:
   jamulus:
-    container_name: jamulus 
-    image: robrichards/jamulus-server:HEAD
+    container_name: jamulus-docker 
+    image: jamulus-server:HEAD
     build:
       context: ./
       args:
-        - JAMULUS_RELEASE=r3_5_5
+        - JAMULUS_RELEASE=r3_5_8
     restart: always
     ports:
-      - "${PORT}:${PORT}/udp"
+      - "22124:22124/udp"
     environment:
       TZ: "America/New_York"  
     entrypoint:
@@ -18,8 +18,8 @@ services:
       - "--server"
       - "--nogui"
       - "--port"
-      - "${PORT}"
+      - "22124"
       - "--welcomemessage"
-      - "Rob Richards - ${HOSTNAME}"
+      - "Jamulus Server"
       - "--numchannels"
       - "4"

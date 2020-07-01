@@ -9,7 +9,7 @@ RUN  apk update && apk add --no-cache \
         git
 
 WORKDIR /tmp
-ARG JAMULUS_RELEASE=r3_5_5
+ARG JAMULUS_RELEASE=r3_5_8
 RUN git clone https://github.com/corrados/jamulus.git
 WORKDIR /tmp/jamulus
 RUN git checkout $JAMULUS_RELEASE
